@@ -18,23 +18,23 @@ END { print result }
 
 function get_first_number(str) {
     match(str, /1|2|3|4|5|6|7|8|9|one|two|three|four|five|six|seven|eight|nine/)
-    number_string = substr(str, RSTART, RLENGTH)
-
-    return is_digit(number_string) ? number_string : digit_by_word[number_string]
+    return to_digit(substr(str, RSTART, RLENGTH))
 }
 
 function get_last_number(str) {
     reversed = reverse(str)
     match(reversed, /1|2|3|4|5|6|7|8|9|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin/)
-    number_string = reverse(substr(reversed, RSTART, RLENGTH))
-
-    return is_digit(number_string) ? number_string : digit_by_word[number_string]
+    return to_digit(reverse(substr(reversed, RSTART, RLENGTH)))
 }
 
 function reverse(str) {
     reversed = ""
     for (i = length(str); i > 0; i--) { reversed = reversed substr(str,i,1) }
     return reversed
+}
+
+function to_digit(number_string) {
+    return is_digit(number_string) ? number_string : digit_by_word[number_string]
 }
 
 function is_digit(str) { return str == str + 0 }
