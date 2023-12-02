@@ -1,3 +1,5 @@
+#! /bin/awk -f
+
 BEGIN { result = 0 }
 {
     gsub(/[^0-9]/, "")

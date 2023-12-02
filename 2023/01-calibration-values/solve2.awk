@@ -1,3 +1,5 @@
+#! /bin/awk -f
+
 BEGIN {
     digit_by_word["one"] = 1
     digit_by_word["two"] = 2
