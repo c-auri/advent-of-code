@@ -7,16 +7,13 @@ BEGIN {
 
     result = 0
 }
-match($0, /Game ([0-9]+): (.*)/, record) {
-    id = record[1]
-    game = record[2]
-
-    if (game_is_possible()) result += id
+match($0, /Game ([0-9]+): (.*)/, game) && game_is_possible() {
+    result += game[1]
 }
 END { print result }
 
 function game_is_possible() {
-    split(game, rounds, "; ")
+    split(game[2], rounds, "; ")
     for (i in rounds) { if (!is_possible(rounds[i])) return 0 }
     return 1
 }
