@@ -16,11 +16,11 @@ function get_ratio(position) {
     ratio = 1
     for (i = -1; i <= 1; i++) {
         line = scheme[row + i]
-        if (is_digit(substr(line, position, 1))) {
+        if (substr(line, position, 1) ~ /[0-9]/) {
             left = 0
             right = 0
-            while (is_digit(substr(line, position - left - 1, 1))) { left++ }
-            while (is_digit(substr(line, position + right + 1, 1))) { right++ }
+            while (substr(line, position - left - 1, 1) ~ /[0-9]/) { left++ }
+            while (substr(line, position + right + 1, 1) ~ /[0-9]/) { right++ }
             num_of_parts++
             ratio *= substr(line, position - left, left + right + 1)
         } else {
@@ -35,8 +35,4 @@ function get_ratio(position) {
         }
     }
     return num_of_parts > 1 ? ratio : 0
-}
-
-function is_digit(string) {
-    return match(string, /[0-9]/) != 0
 }
