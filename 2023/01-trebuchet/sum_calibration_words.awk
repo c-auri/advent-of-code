@@ -17,13 +17,13 @@ BEGIN {
 END { print result }
 
 function get_first_number() {
-    match($0, /1|2|3|4|5|6|7|8|9|one|two|three|four|five|six|seven|eight|nine/)
+    match($0, /[0-9]|one|two|three|four|five|six|seven|eight|nine/)
     return to_digit(substr($0, RSTART, RLENGTH))
 }
 
 function get_last_number() {
     reversed = reverse($0)
-    match(reversed, /1|2|3|4|5|6|7|8|9|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin/)
+    match(reversed, /[0-9]|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin/)
     return to_digit(reverse(substr(reversed, RSTART, RLENGTH)))
 }
 
