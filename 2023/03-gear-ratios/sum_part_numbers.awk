@@ -5,7 +5,9 @@ END {
     for (row in scheme) {
         while (match(scheme[row], /[0-9]+/, number) != 0) {
             if (is_part_number(RSTART, RLENGTH)) result += number[0]
-            remove(number[0])
+            substitute = number[0]
+            gsub(/./, ".", substitute)
+            sub(number[0], substitute, scheme[row])
         }
     }
     print result
@@ -18,10 +20,4 @@ function is_part_number(start, len) {
         }
     }
     return 0
-}
-
-function remove(number) {
-    substitute = ""
-    for (i = 0; i < length(number); i++) substitute = substitute "."
-    sub(number, substitute, scheme[row])
 }
