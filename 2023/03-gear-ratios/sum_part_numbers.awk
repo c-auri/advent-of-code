@@ -1,6 +1,6 @@
 #! /bin/awk -f
 
-{ scheme[++number_of_lines] = $0 }
+{ scheme[++number_of_rows] = $0 }
 END {
     for (row in scheme) {
         while (match(scheme[row], /[0-9]+/, number) != 0) {
