@@ -19,5 +19,4 @@ function is_part_number(start, len) {
             return 1
         }
     }
-    return 0
 }
