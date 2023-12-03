@@ -2,7 +2,7 @@
 
 { scheme[++number_of_lines] = $0 }
 END {
-    for (row = 1; row <= number_of_lines; row++) {
+    for (row in scheme) {
         while (match(scheme[row], "*") != 0) {
             result += get_ratio(RSTART)
             sub("*", ".", scheme[row])

@@ -2,7 +2,7 @@
 
 { scheme[++number_of_lines] = $0 }
 END {
-    for (row = 1; row <= number_of_lines; row++) {
+    for (row in scheme) {
         while (match(scheme[row], /[0-9]+/, number) != 0) {
             if (is_part_number(RSTART, RLENGTH)) result += number[0]
             remove(number[0])
