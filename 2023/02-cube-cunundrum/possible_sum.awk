@@ -4,8 +4,6 @@ BEGIN {
     max["red"] = 12
     max["green"] = 13
     max["blue"] = 14
-
-    result = 0
 }
 match($0, /Game ([0-9]+): (.*)/, game) {
     split(game[2], rounds, "; ")
