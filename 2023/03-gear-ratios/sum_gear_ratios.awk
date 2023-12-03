@@ -1,8 +1,8 @@
 #! /bin/awk -f
 
-{ scheme[++line_number] = $0 }
+{ scheme[++number_of_lines] = $0 }
 END {
-    for (row = 1; row <= line_number; row++) {
+    for (row = 1; row <= number_of_lines; row++) {
         while (match(scheme[row], "*") != 0) {
             result += get_ratio(RSTART)
             sub("*", ".", scheme[row])

@@ -1,8 +1,8 @@
 #! /bin/awk -f
 
-{ scheme[++line_number] = $0 }
+{ scheme[++number_of_lines] = $0 }
 END {
-    for (row = 1; row <= line_number; row++) {
+    for (row = 1; row <= number_of_lines; row++) {
         while (match(scheme[row], /[0-9]+/) != 0) {
             number = substr(scheme[row], RSTART, RLENGTH)
             if (is_part_number(RSTART, RLENGTH)) result += number
