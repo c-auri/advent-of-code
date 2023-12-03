@@ -10,8 +10,6 @@ BEGIN {
     digit_by_word["seven"] = 7
     digit_by_word["eight"] = 8
     digit_by_word["nine"] = 9
-
-    result = 0
 }
 {
     result += get_first_number() get_last_number()
