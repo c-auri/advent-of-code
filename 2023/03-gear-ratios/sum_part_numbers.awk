@@ -3,10 +3,9 @@
 { scheme[++number_of_lines] = $0 }
 END {
     for (row = 1; row <= number_of_lines; row++) {
-        while (match(scheme[row], /[0-9]+/) != 0) {
-            number = substr(scheme[row], RSTART, RLENGTH)
-            if (is_part_number(RSTART, RLENGTH)) result += number
-            remove(number)
+        while (match(scheme[row], /[0-9]+/, number) != 0) {
+            if (is_part_number(RSTART, RLENGTH)) result += number[0]
+            remove(number[0])
         }
     }
     print result
