@@ -29,7 +29,9 @@ function get_last_number() {
 
 function reverse(str) {
     reversed = ""
-    for (i = length(str); i > 0; i--) { reversed = reversed substr(str,i,1) }
+    for (i = length(str); i > 0; i--) {
+        reversed = reversed substr(str,i,1)
+    }
     return reversed
 }
 
@@ -37,4 +39,6 @@ function to_digit(number_string) {
     return is_digit(number_string) ? number_string : digit_by_word[number_string]
 }
 
-function is_digit(str) { return str == str + 0 }
+function is_digit(str) {
+    return str == str + 0
+}
