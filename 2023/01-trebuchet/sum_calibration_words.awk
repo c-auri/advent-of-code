@@ -36,9 +36,5 @@ function reverse(str) {
 }
 
 function to_digit(number_string) {
-    return is_digit(number_string) ? number_string : digit_by_word[number_string]
-}
-
-function is_digit(str) {
-    return str == str + 0
+    return number_string ~ /[0-9]/ ? number_string : digit_by_word[number_string]
 }
