@@ -2,7 +2,6 @@
 
 {
     gsub(/[^0-9]/, "")
-    $0 = substr($0, 1, 1) substr($0, length($0), 1)
-    result += $0
+    result += substr($0, 1, 1) substr($0, length($0), 1)
 }
 END { print result }
