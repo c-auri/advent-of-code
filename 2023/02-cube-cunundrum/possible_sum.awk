@@ -11,7 +11,8 @@ match($0, /Game ([0-9]+): (.*)/, game) {
         split(rounds[i] ", ", groups, ", ")
         for (j = 1; j < length(groups); j++) {
             split(groups[j], parts, " ")
-            if (parts[1] > max[parts[2]]) next
+            if (parts[1] > max[parts[2]])
+                next
         }
     }
 

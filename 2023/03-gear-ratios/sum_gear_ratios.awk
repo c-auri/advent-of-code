@@ -19,8 +19,11 @@ function get_ratio(position) {
         if (substr(line, position, 1) ~ /[0-9]/) {
             left = 0
             right = 0
-            while (substr(line, position - left - 1, 1) ~ /[0-9]/) { left++ }
-            while (substr(line, position + right + 1, 1) ~ /[0-9]/) { right++ }
+            while (substr(line, position - left - 1, 1) ~ /[0-9]/)
+                left++
+            while (substr(line, position + right + 1, 1) ~ /[0-9]/)
+                right++
+
             num_of_parts++
             ratio *= substr(line, position - left, left + right + 1)
         } else {
