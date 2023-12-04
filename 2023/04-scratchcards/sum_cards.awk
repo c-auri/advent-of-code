@@ -3,13 +3,13 @@
 match($0, /.*: ([ *[0-9]+ *]*) \| ([ *[0-9]+ *]*)/, sides) {
     number_of_copies[++current_card]++
     split(sides[2], player_numbers, " ")
-    split(sides[1], winning_dictionary, " ")
-    for (i in winning_dictionary)
-        winning_numbers[winning_dictionary[i]] = ""
+    split(sides[1], winning_numbers, " ")
+    for (i in winning_numbers)
+        winning_dictionary[winning_numbers[i]] = ""
 }
 {
     for (i in player_numbers) {
-        if (player_numbers[i] in winning_numbers) {
+        if (player_numbers[i] in winning_dictionary) {
             number_of_matches++
         }
     }
@@ -19,8 +19,8 @@ match($0, /.*: ([ *[0-9]+ *]*) \| ([ *[0-9]+ *]*)/, sides) {
 }
 {
     delete player_numbers
-    delete winning_dictionary
     delete winning_numbers
+    delete winning_dictionary
     number_of_matches = 0
 }
 END {
