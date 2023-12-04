@@ -1,6 +1,7 @@
 #! /bin/awk -f
 
 {
+    # thanks Mao
     gsub("one", "o1e")
     gsub("two", "t2o")
     gsub("three", "t3e")
