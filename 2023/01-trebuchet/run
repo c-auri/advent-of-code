@@ -1,0 +1,59 @@
+#!/bin/bash
+
+function print_result
+{
+	GREEN=$(tput setaf 2)
+	RED=$(tput setaf 1)
+	NORMAL=$(tput sgr0)
+
+	actual=$1
+	expected=$2
+
+	if [[ $actual == $expected ]]
+	then
+		printf "$GREEN\xE2\x9C\x94$NORMAL $actual\n"
+	else
+		printf "$RED\xE2\x9D\x8C$NORMAL actual: $actual, expected: $expected\n"
+	fi
+}
+
+function test
+{
+	if [[ $# > 1 ]]
+	then
+		echo "Too many arguments."
+	fi
+
+	case $1 in
+		'silver')
+			actual=$(awk -f sum.awk silver-test.txt)
+			expected=142
+			;;
+		'gold')
+			actual=$(awk -f replace.awk gold-test.txt | awk -f sum.awk)
+			expected=281
+			;;
+		*)
+			echo "Invalid argument: expected 'silver' or 'gold'."
+			exit 1
+			;;
+	esac
+
+	print_result $actual $expected
+}
+
+function solve
+{
+	case $1 in
+		'silver')
+			echo $(awk -f sum.awk puzzle.txt)
+			;;
+		'gold')
+			echo $(awk -f replace.awk puzzle.txt | awk -f sum.awk)
+			;;
+		*)
+			echo "Invalid argument: expected 'silver' or 'gold'."
+			exit 1
+			;;
+	esac
+}
