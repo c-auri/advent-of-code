@@ -4,12 +4,12 @@ source ../lib.sh
 
 function solve_silver
 {
-	awk -f sum.awk "$1"
+	./sum.awk "$1"
 }
 
 function solve_gold
 {
-	awk -f replace.awk "$1" | awk -f sum.awk;
+	./replace.awk "$1" | ./sum.awk;
 }
 
 silver_test_file="silver-test.txt"

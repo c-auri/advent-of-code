@@ -1,3 +1,5 @@
+#!/bin/awk -f
+
 {
     # thanks Mao
     gsub("one", "o1e")

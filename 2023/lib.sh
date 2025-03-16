@@ -66,5 +66,6 @@ function run
 			;;
 		*)
 			echo $invalid_arg_msg $1
+			;;
 	esac
 }

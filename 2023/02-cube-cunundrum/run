@@ -1,0 +1,21 @@
+#!/bin/bash
+
+source ../lib.sh
+
+function solve_silver
+{
+	./possible_sum.awk "$1"
+}
+
+function solve_gold
+{
+	./required_power.awk "$1"
+}
+
+silver_test_file="test.txt"
+gold_test_file="test.txt"
+
+silver_expected_test_result=8
+gold_expected_test_result=2286
+
+run $1 $2

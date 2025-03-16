@@ -1,4 +1,4 @@
-#! /bin/awk -f
+#!/bin/awk -f
 
 match($0, /.*: ([ *[0-9]+ *]*) \| ([ *[0-9]+ *]*)/, sides) {
     split(sides[2], player_numbers, " ")

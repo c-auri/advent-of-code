@@ -1,0 +1,21 @@
+#!/bin/bash
+
+source ../lib.sh
+
+function solve_silver
+{
+	./sum_part_numbers.awk "$1"
+}
+
+function solve_gold
+{
+	./sum_gear_ratios.awk "$1"
+}
+
+silver_test_file="test.txt"
+gold_test_file="test.txt"
+
+silver_expected_test_result=4361
+gold_expected_test_result=467835
+
+run $1 $2
