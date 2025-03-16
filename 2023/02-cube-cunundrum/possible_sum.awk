@@ -1,4 +1,4 @@
-#! /bin/awk -f
+#!/bin/awk -f
 
 BEGIN {
     max["red"] = 12

@@ -1,4 +1,4 @@
-#! /bin/awk -f
+#!/bin/awk -f
 
 match($0, /.*: ([ *[0-9]+ *]*) \| ([ *[0-9]+ *]*)/, sides) {
     number_of_cards[++current_card]++

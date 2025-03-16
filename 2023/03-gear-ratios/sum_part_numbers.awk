@@ -1,4 +1,4 @@
-#! /bin/awk -f
+#!/bin/awk -f
 
 { scheme[++number_of_rows] = $0 }
 END {

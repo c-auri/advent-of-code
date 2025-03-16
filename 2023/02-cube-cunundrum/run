@@ -1,15 +1,15 @@
 #!/bin/bash
 
-source ../lib.sh
+source ../lib
 
 function solve_silver
 {
-	./possible_sum.awk "$1"
+    ./possible_sum.awk "$1"
 }
 
 function solve_gold
 {
-	./required_power.awk "$1"
+    ./required_power.awk "$1"
 }
 
 silver_test_file="test.txt"

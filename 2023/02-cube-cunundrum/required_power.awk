@@ -1,4 +1,4 @@
-#! /bin/awk -f
+#!/bin/awk -f
 
 match($0, /Game [0-9]+: (.*)/, record) {
     required["red"] = 0
