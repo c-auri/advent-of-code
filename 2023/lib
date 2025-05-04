@@ -1,7 +1,5 @@
 #!/bin/bash
 
-__invalid_arg_msg="Invalid argument:"
-
 function run
 {
     case $1 in
@@ -12,7 +10,7 @@ function run
             test $2
             ;;
         *)
-            echo $__invalid_arg_msg $1
+            echo "Invalid argument:" $1
             ;;
     esac
 }
@@ -27,7 +25,7 @@ function solve
             echo $(solve_gold puzzle.txt)
             ;;
         *)
-            echo $__invalid_arg_msg $1
+            echo "Invalid argument:" $1
             exit 1
             ;;
     esac
@@ -45,7 +43,7 @@ function test
             expected=$gold_expected_test_result
             ;;
         *)
-            echo $__invalid_arg_msg $1
+            echo "Invalid argument:" $1
             exit 1
             ;;
     esac
