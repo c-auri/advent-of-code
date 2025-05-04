@@ -2,14 +2,19 @@
 
 source ../lib
 
+function filter
+{
+    tr -cd '0-9\n'
+}
+
 function solve_silver
 {
-    ./sum.awk "$1"
+    cat $1 | filter | ./sum.awk
 }
 
 function solve_gold
 {
-    ./replace.awk "$1" | ./sum.awk;
+    ./replace.sed "$1" | filter | ./sum.awk;
 }
 
 silver_test_file="silver-test.txt"
